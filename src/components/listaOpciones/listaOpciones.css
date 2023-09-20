@@ -1,0 +1,27 @@
+.lista-opciones{
+    margin: 24px 0;
+    font-family: var(--fuente-1);
+}
+
+.lista-opciones label{
+    font-weight: 600;
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 1.125rem; 
+}
+
+.lista-opciones select{
+    font-size: 1rem;
+    width: 100%;
+    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.06);
+    border: none;
+    padding: 1.875rem 1.25rem;
+    border-radius: .2rem;
+    outline-color: var(--color-btn);
+    background-color: white;
+
+}
+
+.lista-opciones option:hover{
+    background: var(--color-btn);
+}
