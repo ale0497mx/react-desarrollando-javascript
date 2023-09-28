@@ -5,8 +5,8 @@ const Equipo = (props) => {
 
 
     //ddestructuraccion
-    const { colorPrimario, colorSecundario, titulo} = props.datos;
-    const { colaboradores, eliminarColaborador, actualizarColor } = props;
+    const { colorPrimario, colorSecundario, titulo, id} = props.datos;
+    const { colaboradores, eliminarColaborador, actualizarColor, like } = props;
 
     const colorFondo = {
         background:  hexToRgba(colorPrimario, 0.2)
@@ -24,7 +24,7 @@ const Equipo = (props) => {
                 type="color" 
                 className="input-color"
                 value={colorPrimario}
-                onChange={(event) => {actualizarColor(event.target.value, titulo)}}
+                onChange={(event) => {actualizarColor(event.target.value, id)}}
             />
             <h3 style={estiloTitulo}>{titulo}</h3>
             <div className="colaboradores">
@@ -35,6 +35,7 @@ const Equipo = (props) => {
                     key={index}
                     colorPrimario={colorPrimario}
                     eliminarColaborador={eliminarColaborador}
+                    like={like}
                 />)
             }
             </div>
