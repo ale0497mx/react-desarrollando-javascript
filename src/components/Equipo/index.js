@@ -1,14 +1,15 @@
 import "./Equipo.css";
 import Colaborador from "../Colaborador";
+import hexToRgba from 'hex-to-rgba';
 const Equipo = (props) => {
 
 
     //ddestructuraccion
     const { colorPrimario, colorSecundario, titulo} = props.datos;
-    const { colaboradores } = props;
+    const { colaboradores, eliminarColaborador, actualizarColor } = props;
 
     const colorFondo = {
-        background: colorSecundario,
+        background:  hexToRgba(colorPrimario, 0.2)
     }
     const estiloTitulo = {
         borderColor: colorPrimario,
@@ -19,6 +20,12 @@ const Equipo = (props) => {
     {  /* usamos los   corchetes para que pueda funcionar la comparacion {}*/
         colaboradores.length > 0 && // aqui ocultamosso los elementos que sean mayor que 0 en este ccaso los que no tengan un numero ya que un arreglo contiene una cantidad n
         <section className="equipo" style={colorFondo}>
+            <input 
+                type="color" 
+                className="input-color"
+                value={colorPrimario}
+                onChange={(event) => {actualizarColor(event.target.value, titulo)}}
+            />
             <h3 style={estiloTitulo}>{titulo}</h3>
             <div className="colaboradores">
             
@@ -27,7 +34,8 @@ const Equipo = (props) => {
                     datos={colaborador} 
                     key={index}
                     colorPrimario={colorPrimario}
-                    />)
+                    eliminarColaborador={eliminarColaborador}
+                />)
             }
             </div>
         </section> 
